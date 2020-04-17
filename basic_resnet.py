@@ -690,7 +690,7 @@ for i in range(NUM_REPEAT):
         model2.load_weights('complete' + str(i + 1) + str(j + 1) + '_weights_2.h5')
         pred = model.predict(X_test_pred)
         p[i * NUM_SNAPSHOTS + j, :] = pred.reshape(24 * NUM_TEST_DAYS)
-pred_eval2 = np.mean(p, axis=0)
+pred_eval2 = np.mean(p2, axis=0)
 
 
 
@@ -712,7 +712,6 @@ mae2 = np.mean(np.abs(Y_test_eval - pred_eval2))
 rmse2 = np.sqrt(np.mean(np.square(pred_eval2 - Y_test_eval)))
 
 print("basic+resnet:")
-print("basic:")
 print('mape:')
 print(mape2)
 print('mae:')
