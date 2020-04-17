@@ -688,8 +688,8 @@ p2 = np.zeros((NUM_REPEAT * NUM_SNAPSHOTS, 24 * NUM_TEST_DAYS))
 for i in range(NUM_REPEAT):
     for j in range(NUM_SNAPSHOTS):
         model2.load_weights('complete' + str(i + 1) + str(j + 1) + '_weights_2.h5')
-        pred = model.predict(X_test_pred)
-        p[i * NUM_SNAPSHOTS + j, :] = pred.reshape(24 * NUM_TEST_DAYS)
+        pred = model2.predict(X_test_pred)
+        p2[i * NUM_SNAPSHOTS + j, :] = pred.reshape(24 * NUM_TEST_DAYS)
 pred_eval2 = np.mean(p2, axis=0)
 
 
